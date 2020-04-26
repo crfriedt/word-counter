@@ -8,7 +8,12 @@ const submitBtn = document.getElementById('submitBtn'),
 
 // Event Handlers
 submitBtn.addEventListener('click', function(){
-  let wordPool = textArea.value;
-  let splitWords = wordPool.split(' ');
-  totalWords.innerHTML = splitWords.length;
+  if(textArea.value === ''){
+    alert.innerHTML = 'Please enter text';
+    alert.className = 'alert-danger';
+  } else {
+    let wordPool = textArea.value;
+    let splitWords = wordPool.split(' ');
+    totalWords.innerHTML = `Total : ${splitWords.length}`
+  }
 });
