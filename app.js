@@ -8,5 +8,7 @@ const submitBtn = document.getElementById('submitBtn'),
 
 // Event Handlers
 submitBtn.addEventListener('click', function(){
-  console.log('it works');
+  let wordPool = textArea.value;
+  let splitWords = wordPool.split(' ');
+  totalWords.innerHTML = splitWords.length;
 });
