@@ -6,14 +6,29 @@ const submitBtn = document.getElementById('submitBtn'),
 
 
 
-// Event Handlers
+
+// Event Handler
 submitBtn.addEventListener('click', function(){
   if(textArea.value === ''){
     alert.innerHTML = 'Please enter text';
     alert.className = 'alert-danger';
-  } else {
+    setTimeout(function(){
+      alert.innerHTML = '';
+      alert.className = '';
+    }, 3000)
+ } else {
+    let symbols = [' ', '!', '@', '$','%', '&', '*', '?', ',', "\"", ':', ',', '>', '<', '\'','\"\"','\'\''];
     let wordPool = textArea.value;
+    debugger;
     let splitWords = wordPool.split(' ');
-    totalWords.innerHTML = `Total : ${splitWords.length}`
+    for (let i = 0; i < splitWords.length; i++){
+      for (let j = 0; j < symbols.length; j++){
+        if (splitWords[i] === symbols[j]){
+          splitWords.slice(splitWords[i], 1);
+
+        }
+      }
+    }
+    totalWords.innerHTML = `Total : ${splitWords.length - 1}`
   }
 });
